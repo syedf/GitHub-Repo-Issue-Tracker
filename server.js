@@ -5,9 +5,9 @@ var express = require('express'), // The Api layer for our server
     bodyParser = require('body-parser'), // lets you read JSONs' sent from POST request
     morgan = require('morgan'); // Logging Library for express
 
-var environment = config.env || 'dev';
+var environment = config.env || 'development';
 if(environment === 'dev')
-    app.use(morgan('dev')); // logging is only enabled in development mode : Change envirnments via config.js or set NODE_ENV to 'prod' or 'dev'
+    app.use(morgan('dev')); // logging is only enabled in development mode : Change environments via config.js or set NODE_ENV to 'prod' or 'dev'
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());  // initializing of modules
 app.use(cookieParser());
