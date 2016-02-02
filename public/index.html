@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app='GRIT'>
+<head lang="en">
+    <meta charset="UTF-8">
+    <base href="/">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" href="css/main.css">
+    <title>GRIT</title>
+</head>
+<body>
+<header ng-include="'views/header.html'"></header>
+
+<div ui-view></div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular.js"></script>
+<script src="https://code.jquery.com/jquery-git2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.16/angular-ui-router.js"></script>
+<script src="/build/app.min.js"></script>
+</html>

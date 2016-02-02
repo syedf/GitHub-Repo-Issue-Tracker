@@ -1,0 +1,24 @@
+<div class="container">
+    <form ng-submit="getIssues(repoUrl)">
+        <br/>
+        <br/>
+        <div class="row">
+            <div class="input-field col s6 center">
+                <input  id="last_name" type="search" class="validate" ng-model="repoUrl" required="true" title="Enter a Valid Github Repository Url">
+                <label for="last_name">GitHub URL</label>
+                <i class="material-icons" style="margin-top: 8px" ng-click="clear()">close</i>
+                <button class="btn waves-effect waves-light left" type="submit" name="action" ng-click="getIssues(repoUrl)">Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+    </form>  
+    <div id="issuesTable">
+        <div class="collection" ng-show="issues.totalIssues">
+            <a ng-show="issues.totalIssues" class="collection-item">Total number of open issues<span class="badge boldText">{{issues.totalIssues}}</span></a>
+            <a ng-show="issues.issuesInLast24Hours" class="collection-item">Number of open issues that were opened in the last 24 hours<span class="badge boldText">{{issues.issuesInLast24Hours}}</span></a>
+            <a ng-show="issues.issuesInLast7Days" class="collection-item">Number of open issues that were opened more than 24 hours ago but less than 7 days ago<span class="badge boldText">{{issues.issuesInLast7Days}}</span></a>
+            <a ng-show="issues.issuesOpenMoreThan7daysAgo" class="collection-item">Number of open issues that were opened more than 7 days ago <span class="badge boldText">{{issues.issuesOpenMoreThan7daysAgo}}</span></a>
+        </div>
+    </div>
+</div>

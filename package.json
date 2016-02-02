@@ -1,0 +1,21 @@
+{
+  "name": "skipthesequel",
+  "version": "0.0.1",
+  "description": "A movie tracker application",
+  "main": "server.js",
+  "scripts": {
+    "postinstall": "bower install && gulp"
+  },
+  "author": "Syed Faizan",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "cookie-parser": "^1.4.1",
+    "del": "^2.2.0",
+    "express": "^4.13.4",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-watch": "^4.3.5",
+    "morgan": "^1.6.1"
+  }
+}
