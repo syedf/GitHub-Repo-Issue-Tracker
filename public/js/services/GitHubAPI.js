@@ -12,6 +12,9 @@ angular
                 var url = gitHubAPIURL+repoDetails.authorName+'/'+repoDetails.repoName;
                 return $http.get(url);
             }
+            else{
+              return {err:'Invalid URL'};
+            }
         };
         self.getOpenIssuesFrom24hours = function (repoURL) {
             var repoDetails = getRepoDetailsFromURL(repoURL);
@@ -19,6 +22,9 @@ angular
                 var yesterday = new Date (new Date ().getTime () - (24 * 60 * 60 * 1000)); // get the same time but yesterday
                 var url = gitHubAPIURL + repoDetails.authorName + '/' + repoDetails.repoName + '/issues?since=' + yesterday.toISOString ();
                 return $http.get (url);
+            }
+            else{
+              return {err:'Invalid URL'};
             }
         };
         self.getIssuesOpened24HoursAgoAndLessThanAWeek = function (repoURL) {
@@ -29,11 +35,14 @@ angular
                 var url = gitHubAPIURL + repoDetails.authorName + '/' + repoDetails.repoName + '/issues?per_page=100&since=' + aWeek.toISOString ();
                 return $http.get (url);
             }
+            else{
+              return {err:'Invalid URL'};
+            }
         };
 }]);
 
-function getRepoDetailsFromURL(repoUrl) {
-    if(repoUrl){
+function getRepoDetailsFromURL(repoUrl) { // get Author name and Repository Name from the Url Submitted
+    if(repoUrl.length){
         var temp = repoUrl.split('/');
         return {
             repoName : temp[temp.length-1],

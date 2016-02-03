@@ -17,6 +17,13 @@ angular
                     .getAllOpenIssues(repoUrl)
                     .success(function (response) {
                         $scope.issues.totalIssues = response.open_issues;
+                    })
+                    .error(function(err){
+                      if(err.message)
+                        Materialize.toast(err.message,4000);
+                      else {
+                        Materialize.toast("Unexpected Error Occurred, Please try again after an hour!",4000);
+                      }
                     });
                 GitHubAPI
                     .getOpenIssuesFrom24hours(repoUrl)
@@ -34,4 +41,3 @@ angular
             }
         }
     }]);
-    
