@@ -5,6 +5,9 @@ var express = require('express'), // The Api layer for our server
     bodyParser = require('body-parser'), // lets you read JSONs' sent from POST request
     morgan = require('morgan'); // Logging Library for express
 
+app.set('port', process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3002);
+app.set('ip', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1");
+	
 var environment = config.env || 'development';
 if(environment === 'dev')
     app.use(morgan('dev')); // logging is only enabled in development mode : Change environments via config.js or set NODE_ENV to 'prod' or 'dev'
@@ -25,8 +28,8 @@ app.get('/*',function (req, res) {
     // Server index page on every request , This is done to eliminate the '#' symbol routing libraries introduce in angularjs
     res.sendFile(__dirname+'/public/index.html');
 });
-app.listen(config.port, function () {
-    console.log('Listening to port '+config.port); // start the server and listen to port we set in config.js
+app.listen(app.get('port') ,app.get('ip'), function () {
+    console.log("✔ Express server listening at %s:%d ", app.get('ip'),app.get('port')); // start the server and listen to port we set in config.js
 });
 
 
