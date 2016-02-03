@@ -5,12 +5,13 @@
     <base href="/">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" href="css/main.css">
+    <!-- <link type="text/css" href="css/main.css"> Unused for now - using all Materialize classes -->
     <title>GRIT</title>
 </head>
 <body>
+<!-- Header is spearated into its own file and is included using ng-include directive   -->
 <header ng-include="'views/header.html'"></header>
-
+<!-- This the dynamic layout where UI router adds HTML and data to the UI -->
 <div ui-view></div>
 
 </body>
@@ -18,5 +19,6 @@
 <script src="https://code.jquery.com/jquery-git2.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.16/angular-ui-router.js"></script>
+<!-- the minified js file contained all angulat code in one file -->
 <script src="/build/app.min.js"></script>
 </html>

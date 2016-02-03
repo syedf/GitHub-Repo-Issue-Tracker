@@ -1,5 +1,6 @@
 /**
  * Created by syedf on 1/25/2016.
+ * This is the service to handle the api requests , there are 3 api requests made and is then sent to the controller and shown on the UI
  */
 angular
     .module ('GRIT')
