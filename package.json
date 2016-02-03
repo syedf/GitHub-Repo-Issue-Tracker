@@ -4,7 +4,7 @@
   "description": "A movie tracker application",
   "main": "server.js",
   "scripts": {
-    "postinstall": "bower install && gulp"
+	"start": "node server.js"
   },
   "author": "Syed Faizan",
   "dependencies": {
