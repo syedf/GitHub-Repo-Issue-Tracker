@@ -1,7 +1,7 @@
 /**
  * Created by syedf on 2/2/2016.
  */
-// The controller is use in the default page
+// The controller is use in the home page , it contains a Input box and a table to show the info about Repository
 angular
     .module('GRIT')
     .controller('homeCtrl',['$scope','GitHubAPI', function ($scope,GitHubAPI) {
@@ -16,11 +16,11 @@ angular
                 GitHubAPI
                     .getAllOpenIssues(repoUrl)
                     .success(function (response) {
-                        $scope.issues.totalIssues = response.open_issues;
+                        $scope.issues.totalIssues = response.open_issues; // bind the response to the UI
                     })
                     .error(function(err){
                       if(err.message)
-                        Materialize.toast(err.message,4000);
+                        Materialize.toast(err.message,4000); // a toaster to show erros in notification style
                       else {
                         Materialize.toast("Unexpected Error Occurred, Please try again after an hour!",4000);
                       }
